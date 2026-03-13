@@ -1,5 +1,5 @@
 provider "aws" {
-  region  = var.aws_region
+  region  = var.aws_region != "" ? var.aws_region : null
   profile = var.aws_profile != "" ? var.aws_profile : null
 }
 
