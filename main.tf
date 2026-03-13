@@ -11,10 +11,9 @@ terraform {
     }
   }
   backend "s3" {
-    bucket  = "tride-iac"
-    key     = "state/terraform.tfstate"
-    region  = "us-east-2"
-    profile = "pedrossilva"
+    bucket = "tride-iac"
+    key    = "state/terraform.tfstate"
+    region = "us-east-2"
   }
 }
 
