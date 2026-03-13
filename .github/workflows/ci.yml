@@ -14,6 +14,8 @@ jobs:
   run-terraform:
     name: Run Terraform
     runs-on: ubuntu-latest
+    env:
+      TF_VAR_aws_region: us-east-2
 
     steps:
       - name: Checkout
