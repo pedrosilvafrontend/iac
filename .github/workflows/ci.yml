@@ -14,8 +14,6 @@ jobs:
   run-terraform:
     name: Run Terraform
     runs-on: ubuntu-latest
-    env:
-      TF_VAR_aws_region: us-east-2
 
     steps:
       - name: Checkout
@@ -24,13 +22,13 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::137140610965:role/tf-role
-          aws-region: us-east-2
+          aws-region: ${{ secrets.AWS_REGION }}
+          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
 
       - name: Setup terraform
         uses: hashicorp/setup-terraform@v4
         with:
-          terraform_version: 'latest'
+          terraform_version: ${{ vars.TF_VERSION }}
 
       - name: Terraform Init
         run: terraform init -input=false
