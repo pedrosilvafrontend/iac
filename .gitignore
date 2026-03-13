@@ -1,0 +1,8 @@
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.*
+*.hcl
+*.hcl.*
+
+**/.terraform/*
